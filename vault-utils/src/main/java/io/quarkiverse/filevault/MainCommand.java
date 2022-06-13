@@ -37,22 +37,24 @@ public class MainCommand implements Runnable, QuarkusApplication {
         String encrypted = EncryptionUtil.encrypt(keystorePassword, secretKey, salt, iterationCount);
         
         System.out.println("######################################################################################################");
-        System.out.println("Please add the following paramenters on your application.properties file, and replace the <key> value!");
-        System.out.println("quarkus.file.vault.provider.<key>.encrypted=true");
+        System.out.println("Please add the following paramenters on your application.properties file, and replace the <name> value!"
+                         + "\nThe <name> will be used in the consumer to refer to this provider.\n");
+        
+        System.out.println("quarkus.file.vault.provider.<name>.encrypted=true");
         
         if(!DEFAULT_SALT.equals(salt)) {
-            System.out.println("quarkus.file.vault.provider.<key>.salt=" + salt);
+            System.out.println("quarkus.file.vault.provider.<name>.salt=" + salt);
         }
         
         if(!DEFAULT_SECRET_KEY.equals(secretKey)) {
-            System.out.println("quarkus.file.vault.provider.<key>.secretKey=" + secretKey);
+            System.out.println("quarkus.file.vault.provider.<name>.secretKey=" + secretKey);
         }
         
         if(Integer.parseInt(DEFAULT_ITERATION_CODE) != iterationCount) {
-            System.out.println("quarkus.file.vault.provider.<key>.iteration-count=" + iterationCount);
+            System.out.println("quarkus.file.vault.provider.<name>.iteration-count=" + iterationCount);
         }
         
-        System.out.println("quarkus.file.vault.provider.<key>.secret=" + encrypted);
+        System.out.println("quarkus.file.vault.provider.<name>.secret=" + encrypted);
         System.out.println("######################################################################################################");
     }
 

@@ -1,6 +1,6 @@
 # vault-utils
 
-Simple Project Utils for Quarkus file vault
+This project should be an extra layer for the ["quarkus-file-vault"](https://github.com/quarkiverse/quarkus-file-vault) and encrypt the keystore secret and mask it. As output, you'd see all the parameters necessary for the ["quarkus-file-vault"](https://github.com/quarkiverse/quarkus-file-vault).
 
 ## First Step
 
@@ -55,11 +55,16 @@ $ java -jar target/quarkus-app/quarkus-run.jar -p storepassword
 You should to see something like that at the output:
 
 ```
-##################################################################################
-Please add the following paramenters on your application.properties file, and replace the <key> value!
-quarkus.file.vault.provider.<key>.encrypted=true
-quarkus.file.vault.provider.<key>.secret=urbqHgSpI9PpcpAvIuDDog==
-##################################################################################
+######################################################################################################
+Please add the following paramenters on your application.properties file, and replace the <name> value!
+The <name> will be used in the consumer to refer to this provider.
+
+quarkus.file.vault.provider.<name>.encrypted=true
+quarkus.file.vault.provider.<name>.salt=12345678
+quarkus.file.vault.provider.<name>.secretKey=the_best_of
+quarkus.file.vault.provider.<name>.iteration-count=1000
+quarkus.file.vault.provider.<name>.secret=iBYdvIrPKQH0c8lxe4AJag==
+######################################################################################################
 ```
 
 Save this for the next step.
