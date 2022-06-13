@@ -36,8 +36,7 @@ public class MainCommand implements Runnable, QuarkusApplication {
     public void run() {
         String encrypted = EncryptionUtil.encrypt(keystorePassword, secretKey, salt, iterationCount);
         
-        System.out.println("\n");
-        System.out.println("##################################################################################");
+        System.out.println("######################################################################################################");
         System.out.println("Please add the following paramenters on your application.properties file, and replace the <key> value!");
         System.out.println("quarkus.file.vault.provider.<key>.encrypted=true");
         
@@ -54,8 +53,7 @@ public class MainCommand implements Runnable, QuarkusApplication {
         }
         
         System.out.println("quarkus.file.vault.provider.<key>.secret=" + encrypted);
-        System.out.println("##################################################################################");
-        System.out.println("\n");
+        System.out.println("######################################################################################################");
     }
 
     @Override
